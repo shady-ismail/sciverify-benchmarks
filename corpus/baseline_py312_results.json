@@ -1,0 +1,246 @@
+{
+  "evaluation_version": "0.3.1-py312-realworld",
+  "track_a_historical_regressions": {
+    "total_historical_cases": 18,
+    "naive_unit_test_caught": 1,
+    "naive_unit_test_caught_pct": 5.6,
+    "sciverify_caught": 14,
+    "sciverify_caught_pct": 77.8,
+    "sciverify_missed": 4,
+    "sciverify_missed_pct": 22.2,
+    "cases": [
+      {
+        "id": "HIST-01-SCIPY-SHIFTED-VAR",
+        "ecosystem": "scipy.stats / numpy",
+        "bug_class": "Catastrophic IEEE-754 cancellation in one-pass shifted sample variance",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-IEEE754-SHIFT-CANCELLATION",
+        "latency_ms": 4.65,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-02-SCIPY-LOGSUMEXP-UNDERFLOW",
+        "ecosystem": "scipy.special",
+        "bug_class": "Unshifted exp() overflow/underflow in log-partition normalization",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-IEEE754-EXP-OVERFLOW",
+        "latency_ms": 3.96,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-03-ASTROPY-SIGMA-NAN-DILUTION",
+        "ecosystem": "astropy.stats",
+        "bug_class": "Replacing masked/NaN sky pixels with 0.0 before background mean estimation",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-NAN-DENOMINATOR-DILUTION",
+        "latency_ms": 4.74,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-04-ASTROPY-WEIGHTED-NAN-VAR",
+        "ecosystem": "astropy.stats",
+        "bug_class": "Dividing NaN-filtered residual sum of squares by full unfiltered len(x)",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-NAN-DENOMINATOR-DILUTION",
+        "latency_ms": 2.81,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-05-LIFELINES-OUTER-RESIDUAL-BROADCAST",
+        "ecosystem": "lifelines",
+        "bug_class": "Column-vector (N,1) minus 1D (N,) hazard prediction silently broadcasting to (N,N)",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-NUMPY-OUTER-BROADCAST",
+        "latency_ms": 2.03,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-06-XARRAY-ROW-NORM-KEEPDIMS",
+        "ecosystem": "xarray / numpy",
+        "bug_class": "Dropping keepdims=True in axis=1 row normalization fails or transposes on non-square arrays",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-RUNTIME-VALUEERROR",
+        "latency_ms": 1.83,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-07-PYOD-GLOBAL-ZSCORE-LEAKAGE",
+        "ecosystem": "pyod / scikit-learn",
+        "bug_class": "Computing standardization mean/std on full series before train/validation split",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-RUNTIME-TYPEERROR",
+        "latency_ms": 2.45,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-08-STATSMODELS-ROLLING-LOOKAHEAD",
+        "ecosystem": "statsmodels / pandas",
+        "bug_class": "Centered/future window index t+1 leaking forward observations into causal filter",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-RUNTIME-TYPEERROR",
+        "latency_ms": 2.51,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-09-EMCEE-WORKER-SEED-CLONING",
+        "ecosystem": "emcee",
+        "bug_class": "Re-seeding parallel MCMC walker workers with identical fixed seed inside worker loop",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-PRNG-WORKER-COLLUSION",
+        "latency_ms": 2.57,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-10-EMCEE-LEGACY-GLOBAL-SEED-FORK",
+        "ecosystem": "emcee / scipy.stats",
+        "bug_class": "Cloning identical RandomState state across parallel ensemble chains",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-PRNG-WORKER-COLLUSION",
+        "latency_ms": 3.72,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-11-SCIPY-FLUX-STEPPER-DRIFT",
+        "ecosystem": "scipy.integrate",
+        "bug_class": "Asymmetric boundary stencil losing conserved total mass across multi-step advection",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-CONSERVATION-DRIFT",
+        "latency_ms": 2.32,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-12-ASTROPY-MIXED-UNIT-HOMOGENEITY",
+        "ecosystem": "astropy.units / physics",
+        "bug_class": "Adding unscaled linear length term to quadratic area term violates scale degree k=2",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-DIMENSIONAL-INHOMOGENEITY",
+        "latency_ms": 1.35,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-13-SCIPY-TRIG-SMALL-ARG-CANCELLATION",
+        "ecosystem": "scipy.special",
+        "bug_class": "Direct (1 - cos(x)) / x^2 catastrophic cancellation near x = 1e-8 collapses limit 0.5 to 0.0",
+        "naive_unit_test_caught": true,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-IEEE754-NEAR-ZERO-CANCELLATION",
+        "latency_ms": 2.44,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-14-SCIPY-QUADRATIC-VIETA-CANCELLATION",
+        "ecosystem": "numpy.polynomial / scipy",
+        "bug_class": "Classical (-b + sqrt(b^2 - 4ac))/(2a) loses smaller root completely for b >> 2*sqrt(ac)",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": true,
+        "defect_code": "DEFECT-IEEE754-ALGORITHMIC-CANCELLATION",
+        "latency_ms": 2.62,
+        "limitation_note": null
+      },
+      {
+        "id": "HIST-15-SCIPY-BETAINC-ASYMPTOTIC-BRANCH",
+        "ecosystem": "scipy.special",
+        "bug_class": "Transcendental incomplete-beta continued-fraction branch threshold at a=b=1e4 (1e-9 ULP accuracy loss)",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": false,
+        "defect_code": "MISSED_OUT_OF_THEORY_SCOPE",
+        "latency_ms": 0.0,
+        "limitation_note": "Z3 QF_FP cannot encode transcendental beta/gamma continued fractions within 500ms budget"
+      },
+      {
+        "id": "HIST-16-LIFELINES-TIED-EVENT-EFRON-CONVENTION",
+        "ecosystem": "lifelines",
+        "bug_class": "Breslow vs Efron tie-breaking convention mismatch on simultaneous survival event timestamps",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": false,
+        "defect_code": "MISSED_OUT_OF_THEORY_SCOPE",
+        "latency_ms": 0.0,
+        "limitation_note": "Both Breslow and Efron satisfy probability/monotonicity invariants; requires explicit statistical oracle"
+      },
+      {
+        "id": "HIST-17-ASTROPY-FITS-HEADER-LOCALE-PARSE",
+        "ecosystem": "astropy.io.fits",
+        "bug_class": "String header keyword whitespace/locale truncation on non-ASCII FITS cards",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": false,
+        "defect_code": "MISSED_OUT_OF_THEORY_SCOPE",
+        "latency_ms": 0.0,
+        "limitation_note": "Out-of-scope string/file I/O bug (SciVerify targets numerical array & stochastic contracts)"
+      },
+      {
+        "id": "HIST-18-SCIPY-SPARSE-CSR-INT32-OVERFLOW",
+        "ecosystem": "scipy.sparse",
+        "bug_class": "Compiled C++ CSR indptr int32 index overflow only above nnz > 2^31 - 1 (>16 GB RAM)",
+        "naive_unit_test_caught": false,
+        "sciverify_caught": false,
+        "defect_code": "MISSED_OUT_OF_THEORY_SCOPE",
+        "latency_ms": 0.0,
+        "limitation_note": "Compiled C++ extension threshold requiring >16 GB allocation infeasible in <15s CI check"
+      }
+    ]
+  },
+  "track_b_unmodified_wild_libraries": {
+    "python_runtime": "3.12.16",
+    "platform": "macOS-27.3-arm64-arm-64bit",
+    "package_versions": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.1.1",
+      "astropy": "8.0.2",
+      "lifelines": "0.30.0",
+      "emcee": "3.1.6",
+      "pyod": "3.6.8"
+    },
+    "total_wild_callables_inspected": 160,
+    "supported_single_array_callables": 55,
+    "supported_pct": 34.4,
+    "unsupported_skipped_callables": 105,
+    "unsupported_pct": 65.6,
+    "unsupported_breakdown": {
+      "compiled_or_no_python_ast": 0,
+      "multi_arg_stateful_or_non_array_signature": 74,
+      "domain_value_constraint": 31
+    },
+    "uncalibrated_false_positives": 7,
+    "uncalibrated_false_positive_rate_pct": 12.73,
+    "contract_declared_false_positives": 1,
+    "contract_declared_false_positive_rate_pct": 1.82,
+    "median_audit_latency_ms": 0.41,
+    "p95_audit_latency_ms": 3.26,
+    "documented_false_positive_examples": [
+      {
+        "function": "scipy.stats.boxcox_normmax",
+        "cause": "Heuristic shift-invariance assumption violated by location-dependent or positive-domain estimator; resolved via explicit 3-line YAML ScientificContract"
+      },
+      {
+        "function": "scipy.stats.gmean",
+        "cause": "Heuristic shift-invariance assumption violated by location-dependent or positive-domain estimator; resolved via explicit 3-line YAML ScientificContract"
+      },
+      {
+        "function": "scipy.stats.gstd",
+        "cause": "Heuristic shift-invariance assumption violated by location-dependent or positive-domain estimator; resolved via explicit 3-line YAML ScientificContract"
+      },
+      {
+        "function": "scipy.stats.kstatvar",
+        "cause": "Heuristic shift-invariance assumption violated by location-dependent or positive-domain estimator; resolved via explicit 3-line YAML ScientificContract"
+      },
+      {
+        "function": "scipy.stats.moment",
+        "cause": "Heuristic shift-invariance assumption violated by location-dependent or positive-domain estimator; resolved via explicit 3-line YAML ScientificContract"
+      }
+    ]
+  },
+  "reproducibility_sha256": "c3ca7195ca4d98cd3375e3e6542b59eae69d8b16cb2ef7701630bb96380e9f70"
+}

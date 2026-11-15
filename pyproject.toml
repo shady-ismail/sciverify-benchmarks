@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sciverify-benchmarks"
+version = "0.3.1"
+description = "Reproducible pre-fix/post-fix historical scientific Python bug regression corpus for evaluating formal and property-based verifiers."
+readme = "README.md"
+license = {text = "CC0-1.0 AND MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Shady Fouad Saber Ismail"}]
+dependencies = ["numpy>=1.24", "pytest>=7.4"]

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "SciVerify-Benchmarks: Reproducible Historical Scientific Python Bug Regression Corpus"
+message: "Please cite this benchmark corpus using the metadata below."
+type: dataset
+authors:
+  - given-names: "Shady Fouad Saber"
+    family-names: "Ismail"
+    orcid: "https://orcid.org/0009-0005-3920-2333"
+repository-code: "https://github.com/shady-fouad-ismail/sciverify-benchmarks"
+version: "0.3.1"
+date-released: "2026-11-15"
+license: CC0-1.0
